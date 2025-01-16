@@ -1,0 +1,46 @@
+body{
+    background-color: rgb(164, 168, 168);
+    height: 100vh;
+}
+#cimsor,#datumsor{
+    width: 100%;
+    text-align: center;
+}
+
+
+#container{
+    width: 100%;
+}
+
+#ertesitestabla{
+    border: 2px solid gray;
+    margin-left: 10%;
+    border-spacing:0px ;
+    width: 20%;
+}
+#ertesitestabla td{
+    border-bottom:2px solid gray;
+    height: 40px;
+    
+}
+
+th{
+    height: 40px;
+    border-bottom:2px solid gray ;
+}
+
+#orarend{
+    border: 2px solid gray;
+    float: right;
+    display: block;
+    width: 50%;
+    border-spacing: 0px;
+    text-align: center;
+    padding: 0%;
+    margin-right: 10%;
+}
+#orarend td{
+    border: 2px solid gray;
+    width: 150px;
+    height: 50px;
+}
