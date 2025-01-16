@@ -7,6 +7,10 @@ body{
     text-align: center;
 }
 
+#ido{
+    text-align: right;
+}
+
 
 #container{
     width: 100%;
