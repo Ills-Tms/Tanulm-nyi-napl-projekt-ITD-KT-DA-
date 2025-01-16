@@ -17,9 +17,8 @@ function frissit(){
 }
 
 frissit()
-
+setInterval(frissit(),1000)
 
 ido.innerText=ora+":"+perc
 datumsor.innerText=ev+"."+honap+"."+nap
 
-setInterval(frissit(),1000)
