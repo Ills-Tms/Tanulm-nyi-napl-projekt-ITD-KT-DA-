@@ -1,50 +1,74 @@
-body{
-    background-color: rgb(164, 168, 168);
-    height: 100vh;
+body {
+  background-color: rgb(164, 168, 168);
+  height: 100vh;
 }
-#cimsor,#datumsor{
-    width: 100%;
-    text-align: center;
-}
-
-#ido{
-    text-align: right;
+#cimsor,
+#datumsor {
+  width: 100%;
+  text-align: center;
 }
 
-
-#container{
-    width: 100%;
+#ido {
+  text-align: right;
 }
 
-#ertesitestabla{
-    border: 2px solid gray;
-    margin-left: 10%;
-    border-spacing:0px ;
-    width: 20%;
-}
-#ertesitestabla td{
-    border-bottom:2px solid gray;
-    height: 40px;
-    
+#container {
+  width: 100%;
 }
 
-th{
-    height: 40px;
-    border:2px solid gray ;
+#ertesitestabla {
+  border: 2px solid gray;
+  margin-left: 10%;
+  border-spacing: 0px;
+  width: 20%;
+}
+#ertesitestabla td {
+  border-bottom: 2px solid gray;
+  height: 40px;
 }
 
-#orarend{
-    border: 2px solid gray;
-    float: right;
-    display: block;
-    width: 780px;
-    border-spacing: 0px;
-    text-align: center;
-    padding: 0%;
-    margin-right: 10%;
+th {
+  height: 40px;
+  border: 2px solid gray;
 }
-#orarend td{
-    border: 2px solid gray;
-    width: 150px;
-    height: 50px;
+
+#orarend {
+  border: 2px solid gray;
+  float: right;
+  display: block;
+  width: 780px;
+  border-spacing: 0px;
+  text-align: center;
+  padding: 0%;
+  margin-right: 10%;
+}
+#orarend td {
+  border: 2px solid gray;
+  width: 150px;
+  height: 50px;
+}
+#orarend td.clickable {
+  background-color: #f0f0f0;
+}
+
+.event {
+  background-color: #ffeb3b;
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+#inputForm {
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  width: 300px;
+  display: none;
+}
+
+#inputForm input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
 }
