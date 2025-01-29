@@ -1,24 +1,26 @@
-const datumsor =document.getElementById('datum')
-const ido=document.getElementById('ido')
+const datumsor = document.getElementById("datum");
+const ido = document.getElementById("ido");
 
-const date=new Date();
+function ÓraFrissites() {
+  const now = new Date();
+  const hours = String(now.getHours()).padStart(2, "0");
+  const minutes = String(now.getMinutes()).padStart(2, "0");
+  const seconds = String(now.getSeconds()).padStart(2, "0");
 
-let ev = date.getFullYear();
-let honap=date.getMonth()+1;
-let nap=date.getDate();
-
-let ora;
-let perc;
-
-function frissit(){
-
- ora= date.getHours();
- perc=date.getMinutes();
+  ido.textContent = `${hours}:${minutes}:${seconds}`;
 }
 
-frissit()
-setInterval(frissit(),1000)
+function frissit() {
+  const now = new Date();
+  const ev = now.getFullYear();
+  const honap = String(now.getMonth() + 1).padStart(2, "0");
+  const nap = String(now.getDate()).padStart(2, "0");
 
-ido.innerText=ora+":"+perc
-datumsor.innerText=ev+"."+honap+"."+nap
+  datumsor.innerText = `${ev}.${honap}.${nap}`;
+}
 
+setInterval(ÓraFrissites, 1000);
+ÓraFrissites();
+
+setInterval(frissit, 1000);
+frissit();
