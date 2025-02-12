@@ -2,6 +2,7 @@ body {
   background-color: #a1cca5;
   height: 100vh;
 }
+
 #cimsor,
 #datumsor {
   width: 100%;
@@ -16,96 +17,56 @@ body {
   width: 100%;
 }
 
-th {
-  height: 40px;
+/* Órarend táblázat */
+#orarend {
+  width: 100%;
+  max-width: 900px; /* Asztali nézetben ne legyen túl kicsi */
+  margin: 0 auto; /* Középre igazítás */
+  border-collapse: collapse;
+  overflow-x: auto; /* Görgethető kisebb kijelzőkön */
+}
+
+#orarend th, #orarend td {
   border: 2px solid #111d13;
+  background-color: #709775;
+  min-width: 80px; /* Cellák méretének növelése */
+  padding: 10px;
+  text-align: center;
+  font-size: 16px;
 }
 
 /* Mobilbarát táblázat */
-#orarend {
-  border: 2px solid #111d13;
-  float: right;
-  display: block;
-  width: 100%;
-  max-width: 780px;
-  overflow-x: auto; /*Görgethetővé teszi kisebb képernyőkön */
-  border-spacing: 0px;
-  text-align: center;
-  padding: 0%;
-  margin: 0 auto;
-  /*margin-right: 10%;*/
-}
-/*
-#orarend 
-  width: 100%;
-  max-width: 780px;
-  overflow-x: auto;  Görgethetővé teszi kisebb képernyőkön 
-  display: block;
-  margin: 0 auto;
- */
+@media screen and (max-width: 768px) {
+  #orarend {
+    display: block;
+    overflow-x: auto;
+  }
 
- /* 
- #orarend td, #orarend th {
-  width: auto;
-  min-width: 50px;  Megakadályozza az összeomlást 
-  font-size: 14px;  Kisebb betűméret mobilon 
-}
-*/
-
-#orarend td, #orarend th {
-  border: 2px solid #111d13;
-  background-color: #709775;
-  width: auto;
-  min-width: 50px; /*Megakadályozza az összeomlást*/
- /* height: 50px;*/
- font-size: 14px; /*Kisebb betűméret mobilon */
-}
-
-/*@media screen and (max-width: 480px) {
   #orarend th, #orarend td {
+    min-width: 70px;
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #orarend th, #orarend td {
+    min-width: 60px;
     font-size: 12px;
     padding: 5px;
-  }*/
-
-  @media screen and (max-width: 480px){
- /*#orarend td.clickable*/
- #orarend th, #orarend td{
-  font-size: 12px;
-    padding: 5px;
-  background-color: #709775;
-  cursor: pointer;
   }
-
-/* Reszponzív elrendezés */
-@media screen and (max-width: 768px) {
-  #container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #weather-container, #inputForm {
-    width: 90%;
-  }
-
-   #ido {
-    
-      font-size: 1.5rem;
-      }
-  
- }
 }
 
-
+/* Események */
 .event {
   background-color: #ffeb3b;
   padding: 5px;
   margin-top: 5px;
   border-radius: 5px;
   max-width: 150px;
-  word-break:break-all;
-
+  word-break: break-all;
 }
 
+/* Bevitel */
 #inputForm {
   margin-top: 20px;
   background-color: #709775;
@@ -126,6 +87,7 @@ h2 {
   color: #111d13;
 }
 
+/* Időjárás */
 #weather-container {
   background-color: #709775;
   padding: 20px;
@@ -174,60 +136,34 @@ button:hover {
 .weather-detail {
   margin: 5px 0;
 }
-/* Clock Design */
+
+/* Óra (IDŐ) */
 #ido {
-  font-family: "Courier New", monospace;
-  font-size: 80px;
-  color: #00ff00; /* Green text for the clock */
+  font-size: 3rem; /* Kisebb, hogy mobilon is jó legyen */
+  color: #00ff00;
   text-align: center;
-  padding: 20px;
+  padding: 10px;
   background-color: black;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 255, 0, 0.7); /* Green glowing effect */
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
   width: fit-content;
   margin: 20px auto;
-}
-
-#ido {
-  font-size: 3rem;
-  letter-spacing: 5px;
-  text-align: center;
-  display: inline-block;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.7);
-  border-radius: 10px;
-  box-shadow: 0 0 30px rgba(0, 255, 0, 0.6);
   position: fixed;
   top: 10px;
   right: 10px;
 }
 
-#ido::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(
-    45deg,
-    rgba(0, 255, 0, 0.3),
-    rgba(0, 255, 255, 0.3),
-    rgba(255, 0, 0, 0.3)
-  );
-  animation: wave 3s infinite linear;
-  border-radius: 10px;
-  opacity: 0.5;
+/* Mobilos óra */
+@media screen and (max-width: 768px) {
+  #ido {
+    font-size: 2rem;
+    padding: 8px;
+  }
 }
 
-@keyframes wave {
-  0% {
-    transform: scale(1) translateX(0);
-  }
-  50% {
-    transform: scale(1.1) translateX(5px);
-  }
-  100% {
-    transform: scale(1) translateX(0);
+@media screen and (max-width: 480px) {
+  #ido {
+    font-size: 1.5rem;
+    padding: 5px;
   }
 }
