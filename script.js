@@ -135,3 +135,60 @@ cityInput.addEventListener("keypress", (e) => {
     submitBtn.click();
   }
 });
+
+
+function setReminder() {
+  let text = document.getElementById("reminder-text").value;
+  let time = document.getElementById("reminder-time").value;
+  
+  if (!text || !time) {
+      alert("Kérlek, adj meg egy teendőt és egy időpontot!");
+      return;
+  }
+
+  let reminders = JSON.parse(localStorage.getItem("reminders")) || [];
+  reminders.push({ text, time });
+  localStorage.setItem("reminders", JSON.stringify(reminders));
+
+  displayReminders();
+}
+
+function displayReminders() {
+  let reminders = JSON.parse(localStorage.getItem("reminders")) || [];
+  let reminderList = document.getElementById("reminders");
+  reminderList.innerHTML = "";
+
+  reminders.forEach((reminder, index) => {
+      let li = document.createElement("li");
+      li.textContent = `${reminder.text} - ${new Date(reminder.time).toLocaleString()}`;
+      
+      let deleteBtn = document.createElement("button");
+      deleteBtn.textContent = "❌";
+      deleteBtn.onclick = () => deleteReminder(index);
+
+      li.appendChild(deleteBtn);
+      reminderList.appendChild(li);
+  });
+}
+
+function deleteReminder(index) {
+  let reminders = JSON.parse(localStorage.getItem("reminders")) || [];
+  reminders.splice(index, 1);
+  localStorage.setItem("reminders", JSON.stringify(reminders));
+  displayReminders();
+}
+
+// Ellenőrizzük az időt, és ha eljön az idő, értesítést küldünk
+setInterval(() => {
+  let now = new Date().getTime();
+  let reminders = JSON.parse(localStorage.getItem("reminders")) || [];
+
+  reminders.forEach((reminder, index) => {
+      let reminderTime = new Date(reminder.time).getTime();
+      if (reminderTime <= now) {
+          alert(`⏰ Emlékeztető: ${reminder.text}`);
+          deleteReminder(index); // Automatikusan törli a teljesített emlékeztetőt
+      }
+  });
+}, 60000); // 60 másodpercenként ellenőrzi
+
