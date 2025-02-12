@@ -21,28 +21,80 @@ th {
   border: 2px solid #111d13;
 }
 
+/* Mobilbarát táblázat */
 #orarend {
   border: 2px solid #111d13;
   float: right;
   display: block;
-  width: 780px;
+  width: 100%;
+  max-width: 780px;
+  overflow-x: auto; /*Görgethetővé teszi kisebb képernyőkön */
   border-spacing: 0px;
   text-align: center;
   padding: 0%;
-  margin-right: 10%;
+  margin: 0 auto;
+  /*margin-right: 10%;*/
 }
-#orarend td {
+/*
+#orarend 
+  width: 100%;
+  max-width: 780px;
+  overflow-x: auto;  Görgethetővé teszi kisebb képernyőkön 
+  display: block;
+  margin: 0 auto;
+ */
+
+ /* 
+ #orarend td, #orarend th {
+  width: auto;
+  min-width: 50px;  Megakadályozza az összeomlást 
+  font-size: 14px;  Kisebb betűméret mobilon 
+}
+*/
+
+#orarend td, #orarend th {
   border: 2px solid #111d13;
-  width: 150px;
-  height: 50px;
+  background-color: #709775;
+  width: auto;
+  min-width: 50px; /*Megakadályozza az összeomlást*/
+ /* height: 50px;*/
+ font-size: 14px; /*Kisebb betűméret mobilon */
 }
-#orarend td.clickable {
+
+/*@media screen and (max-width: 480px) {
+  #orarend th, #orarend td {
+    font-size: 12px;
+    padding: 5px;
+  }*/
+
+  @media screen and (max-width: 480px){
+ /*#orarend td.clickable*/
+ #orarend th, #orarend td{
+  font-size: 12px;
+    padding: 5px;
   background-color: #709775;
   cursor: pointer;
+  }
+
+/* Reszponzív elrendezés */
+@media screen and (max-width: 768px) {
+  #container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #weather-container, #inputForm {
+    width: 90%;
+  }
+
+   #ido {
+    
+      font-size: 1.5rem;
+      }
+  
+ }
 }
-th {
-  background-color: #709775;
-}
+
 
 .event {
   background-color: #ffeb3b;
