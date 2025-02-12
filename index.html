@@ -16,11 +16,24 @@
     <p id="ido"></p>
     </div>
 
+    <div id="reminder-container">
+        <h2>Emlékeztető beállítása</h2>
+        <input type="text" id="reminder-text" placeholder="Teendő neve">
+        <input type="datetime-local" id="reminder-time">
+        <button onclick="setReminder()">Emlékeztető beállítása</button>
+    </div>
+    
+    <div id="reminder-list">
+        <h2>Beállított emlékeztetők</h2>
+        <ul id="reminders"></ul>
+    </div>
+    
+
     <div id="container">
 
             
        
-        <h2>Időjárás</h2>
+        <h3>Időjárás</h3>
 
         <div id="weather-container">
             <input type="text" id="city-input" placeholder="Írd be a városod nevét" />
