@@ -151,7 +151,7 @@ function closePopup() {
 
 // Teendők oldal megnyitása (ideiglenes, pl. új oldalra mutathat)
 function viewTasks() {
-    window.location.href = "/teendok";  // Cseréld ki a megfelelő linkre
+    window.location.href = "/teendok.html";  // Cseréld ki a megfelelő linkre
 }
 
 // Példa, hogyan jelenítsük meg a pop-upot 10 másodperc után
