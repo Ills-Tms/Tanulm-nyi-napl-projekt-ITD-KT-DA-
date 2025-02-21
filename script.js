@@ -136,7 +136,31 @@ cityInput.addEventListener("keypress", (e) => {
   }
 });
 
+/*----------------------------------------------------------------------------------------------------*/
 
+// script.js
+// A pop-up ablak megjelenítése
+function showPopup() {
+    document.getElementById("popup").style.display = "flex";
+}
+
+// A pop-up ablak bezárása
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+
+// Teendők oldal megnyitása (ideiglenes, pl. új oldalra mutathat)
+function viewTasks() {
+    window.location.href = "/teendok";  // Cseréld ki a megfelelő linkre
+}
+
+// Példa, hogyan jelenítsük meg a pop-upot 10 másodperc után
+setTimeout(showPopup, 10000);  // 10 másodperc után megjelenik
+
+
+
+
+/*
 function setReminder() {
   let text = document.getElementById("reminder-text").value;
   let time = document.getElementById("reminder-time").value;
@@ -191,4 +215,4 @@ setInterval(() => {
       }
   });
 }, 60000); // 60 másodpercenként ellenőrzi
-
+*/

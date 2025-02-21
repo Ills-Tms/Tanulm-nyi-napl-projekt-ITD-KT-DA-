@@ -16,18 +16,21 @@
     <p id="ido"></p>
     </div>
 
-    <div id="reminder-container">
-        <h2>Emlékeztető beállítása</h2>
-        <input type="text" id="reminder-text" placeholder="Teendő neve">
-        <input type="datetime-local" id="reminder-time">
-        <button onclick="setReminder()">Emlékeztető beállítása</button>
+   
+
+
+  <!-- A pop-up ablak -->
+<div id="popup" class="popup">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <h2>Ne felejtsd el!</h2>
+        <p>A teendőid el vannak mentve, és hamarosan lejár a határidő. Kérlek, nézd át őket!</p>
+        <button onclick="viewTasks()">Nézd meg a teendőket</button>
     </div>
-    
-    <div id="reminder-list">
-        <h2>Beállított emlékeztetők</h2>
-        <ul id="reminders"></ul>
-    </div>
-    
+</div>
+
+
+
 
     <div id="container">
 
