@@ -154,8 +154,8 @@ function viewTasks() {
     window.location.href = "/teendok.html";  // Cseréld ki a megfelelő linkre
 }
 
-// Példa, hogyan jelenítsük meg a pop-upot 10 másodperc után
-setTimeout(showPopup, 10000);  // 10 másodperc után megjelenik
+// Példa, hogyan jelenítsük meg a pop-upot 
+setTimeout(showPopup, 60000);  
 
 
 
