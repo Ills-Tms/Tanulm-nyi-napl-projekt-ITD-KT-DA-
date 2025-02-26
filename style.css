@@ -212,35 +212,13 @@ button:hover {
   color: red; /* Ha a felhasználó fölé viszi az egeret, pirosra vált */
 }
 
-
-/*
-#reminder-container {
+#map{
+  float: left;
   background-color: #709775;
   padding: 20px;
   border-radius: 8px;
-  width: 300px;
-  text-align: center;
-  margin: 20px auto;
-}
-
-#reminder-container input, #reminder-container button {
-  width: 100%;
-  padding: 8px;
-  margin-bottom: 10px;
   border: 1px solid #111d13;
-  border-radius: 5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
 }
-
-#reminders {
-  list-style: none;
-  padding: 0;
-}
-
-#reminders li {
-  background-color: #ffeb3b;
-  padding: 10px;
-  margin: 5px;
-  border-radius: 5px;
-}
-*/
 
