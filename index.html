@@ -16,7 +16,26 @@
     <p id="ido"></p>
     </div>
 
-   
+   <!-- Regisztrációs form -->
+<div id="registerForm">
+    <h3>Regisztráció</h3>
+    <form action="register.php" method="POST">
+        <input type="text" name="username" placeholder="Felhasználónév" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Jelszó" required>
+        <button type="submit">Regisztrálás</button>
+    </form>
+</div>
+
+<!-- Bejelentkezési form -->
+<div id="loginForm">
+    <h3>Bejelentkezés</h3>
+    <form action="login.php" method="POST">
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="password" name="password" placeholder="Jelszó" required>
+        <button type="submit">Bejelentkezés</button>
+    </form>
+</div>
 
 
   <!-- A pop-up ablak -->
