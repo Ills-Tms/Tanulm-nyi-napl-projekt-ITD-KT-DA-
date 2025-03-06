@@ -155,11 +155,23 @@
         <input type="text" id="eventInput" placeholder="Írd be a tervedet">
        
         <button onclick="saveEvent()">Terv mentése</button>
-       
+
+
+
+                <!-- Esemény típusának kiválasztása -->
+            <label for="eventType">Esemény Típus:</label>
+            <select id="eventType">
+            <option value="doga">Doga</option>
+            <option value="feleles">Felelés</option>
+            <option value="talalkozas">Találkozó</option>
+            </select>
+
 
     </div>
 
 
     <button id="teendoGomb" onclick="viewTasks()">Teendők megtekintése</button>
+
+
 </body>
 </html>

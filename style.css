@@ -18,25 +18,25 @@ body {
   width: 100%;
 }
 
-/* Órarend táblázat */
+
 #orarend {
   width: 100%;
-  max-width: 900px; /* Asztali nézetben ne legyen túl kicsi */
-  margin: 0 auto; /* Középre igazítás */
+  max-width: 900px; 
+  margin: 0 auto; 
   border-collapse: collapse;
-  overflow-x: auto; /* Görgethető kisebb kijelzőkön */
+  overflow-x: auto; 
 }
 
 #orarend th, #orarend td {
   border: 2px solid #111d13;
   background-color: #709775;
-  min-width: 80px; /* Cellák méretének növelése */
+  min-width: 80px; 
   padding: 10px;
   text-align: center;
   font-size: 16px;
 }
 
-/* Mobilbarát táblázat */
+
 @media screen and (max-width: 768px) {
   #orarend {
     display: block;
@@ -57,15 +57,32 @@ body {
   }
 }
 
-/* Események */
+
+
+/* Események színezése tematikák szerint */
+.doga {
+  background-color: #ff6347; 
+  color: white;
+}
+
+.feleles {
+  background-color: #e5f509; 
+  color: white;
+}
+
+.talalkozas {
+  background-color: #1e90ff; 
+  color: white;
+}
+
 .event {
-  background-color: #ffeb3b;
   padding: 5px;
   margin-top: 5px;
   border-radius: 5px;
   max-width: 150px;
-  word-break: break-all;
+  word-break: break-word;
 }
+
 
 /* Bevitel */
 #inputForm {
@@ -169,12 +186,12 @@ button:hover {
   }
 }
 
-/*-----------------------------------------------------------------------------------------------------------------------------------------------*/
 
 
-/* style.css */
+
+
 .popup {
-  display: none; /* Rejtve van alapból */
+  display: none; 
   position: fixed;
   top: 0;
   left: 0;
@@ -193,23 +210,22 @@ button:hover {
   text-align: center;
   width: 80%;
   max-width: 400px;
-  position: relative;  /* Fontos, hogy pozicionáljuk a tartalmat */
+  position: relative;  
 }
 
-/* A close gomb */
 .close-btn {
   position: absolute;
   top: 10px;
-  right: 10px;  /* Ide kerül a gomb, a pop-up ablak sarkába */
+  right: 10px;  
   font-size: 30px;
   cursor: pointer;
   color: #333;
   font-weight: bold;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Árnyék a gombnak */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); 
 }
 
 .close-btn:hover {
-  color: red; /* Ha a felhasználó fölé viszi az egeret, pirosra vált */
+  color: red; 
 }
 
 #map{
@@ -225,3 +241,6 @@ button:hover {
   width: 150px;
   height: 50px;
 }
+
+
+
