@@ -21,6 +21,7 @@ const eventStyles = {
   talalkozas: "talalkozas",
 };
 
+
 function frissit() {
   const now = new Date();
   const ev = now.getFullYear();
