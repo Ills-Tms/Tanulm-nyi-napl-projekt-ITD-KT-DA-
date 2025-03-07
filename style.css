@@ -243,5 +243,34 @@ button:hover {
   height: 50px;
 }
 
+#loginForm{
+  position: absolute;
+  width: 30%;
+  height: 30%;
+  background-color: #709775;
+  border: 1px solid black;
+  border-radius: 8px;
+  text-align: center;
+  margin-left: 35%;
+  margin-right: 35%;
+  padding-top: 50px;
+  display: none;
 
+}
+#registerForm{
+  position: absolute;
+  width: 30%;
+  height: 30%;
+  background-color: #709775;
+  border: 1px solid black;
+  border-radius: 8px;
+  text-align: center;
+  margin-left: 35%;
+  margin-right: 35%;
+  padding-top: 50px;
+  display: none;
 
+}
+#userreg{
+  width: 200px;
+}

@@ -86,3 +86,33 @@ function updateCalendar() {
     }
   });
 }
+
+function showPopup() {
+  document.getElementById("popup").style.display = "flex";
+}
+
+// A pop-up ablak bezárása
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+
+// Teendők oldal megnyitása (ideiglenes, pl. új oldalra mutathat)
+function viewTasks() {
+  window.location.href = "/Tanulm-nyi-napl-projekt-ITD-KT-DA-/teendok";  // Cseréld ki a megfelelő linkre
+}
+
+function showLogin(){
+  document.getElementById("loginForm").style.display="flex";
+}
+
+function closeLogin(){
+  document.getElementById("loginForm").style.display="none";
+}
+
+function showRegister(){
+  document.getElementById("registerForm").style.display="flex";
+}
+
+function closeRegister(){
+  document.getElementById("registerForm").style.display="none";
+}
