@@ -16,7 +16,7 @@ function ÓraFrissites() {
 }
 
 const eventStyles = {
-  dolgozat: "doldozat",
+  dolgozat: "dolgozat",
   beadando:"beadando",
   feleles: "feleles",
   meeting: "meeting",
