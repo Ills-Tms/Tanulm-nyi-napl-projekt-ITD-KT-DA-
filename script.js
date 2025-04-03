@@ -3,7 +3,7 @@ const ido = document.getElementById("ido");
 const eventTimeSpan = document.getElementById("eventTime");
 const inputForm = document.getElementById("inputForm");
 const eventInput = document.getElementById("eventInput");
-const eventTypeSelect = document.getElementById("eventType"); // Legördülő lista hivatkozás
+const eventTypeSelect = document.getElementById("eventType"); 
 let events = {};
 
 function ÓraFrissites() {
@@ -187,10 +187,10 @@ const apiKey = "f02435607a5e4bf090773090dfb62ae1";
      document.getElementById("popup").style.display = "none";
  }
  
- // Teendők oldal megnyitása (ideiglenes, pl. új oldalra mutathat)
+ 
  function viewTasks() {
-     window.location.href = "/teendok.html";  // Cseréld ki a megfelelő linkre
+     window.location.href = "/teendok.html";  
  }
  
- // Példa, hogyan jelenítsük meg a pop-upot 
- setTimeout(showPopup, 60000);  
+
+ setTimeout(showPopup, 300000);  
