@@ -16,9 +16,12 @@ function ÓraFrissites() {
 }
 
 const eventStyles = {
-  doga: "doga",
+  dolgozat: "doldozat",
+  beadando:"beadando",
   feleles: "feleles",
-  talalkozas: "talalkozas",
+  meeting: "meeting",
+  szakkor:"szakkor",
+  egyebDolgok:"egyebDolgok"
 };
 
 
