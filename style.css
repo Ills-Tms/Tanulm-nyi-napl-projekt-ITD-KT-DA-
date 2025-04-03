@@ -59,9 +59,12 @@ body {
 
 
 
-/* Események színezése tematikák szerint */
-.doga {
+.dolgozat {
   background-color: #ff6347; 
+  color: white;
+}
+.beadando{
+  background-color: brown;
   color: white;
 }
 
@@ -70,11 +73,22 @@ body {
   color: white;
 }
 
-
-.talalkozas {
+.meeting {
   background-color: #1e90ff; 
   color: white;
 }
+
+.szakkor{
+  background-color: #00ff00;
+  color: white;
+}
+
+.egyebDolgok{
+background-color: #111d13;
+color: white;
+}
+
+
 
 .event {
   padding: 5px;
