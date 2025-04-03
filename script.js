@@ -116,3 +116,78 @@ function showRegister(){
 function closeRegister(){
   document.getElementById("registerForm").style.display="none";
 }
+
+const apiKey = "f02435607a5e4bf090773090dfb62ae1";
+ const submitBtn = document.getElementById("submit-btn");
+ const cityInput = document.getElementById("city-input");
+ const weatherInfo = document.getElementById("weather-info");
+ const loadingMessage = document.getElementById("loading-message");
+ const errorMessage = document.getElementById("error-message");
+ 
+ function getWeather(city) {
+   loadingMessage.style.display = "block";
+   errorMessage.textContent = "";
+   weatherInfo.textContent = "";
+ 
+   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=hu`;
+ 
+   fetch(apiUrl)
+     .then((response) => response.json())
+     .then((data) => {
+       loadingMessage.style.display = "none";
+ 
+       if (data.cod !== 200) {
+         errorMessage.textContent = "Város nem található. Próbálkozz újra";
+         return;
+       }
+ 
+       const { name, weather, main } = data;
+       weatherInfo.innerHTML = `
+                 <div class="weather-detail"><strong>Város:</strong> ${name}</div>
+                 <div class="weather-detail"><strong>Időjárás:</strong> ${weather[0].description}</div>
+                 <div class="weather-detail"><strong>Hőmérséglet:</strong> ${main.temp}°C</div>
+                 <div class="weather-detail"><strong>Páratartalom:</strong> ${main.humidity}%</div>
+             `;
+     })
+     .catch((error) => {
+       loadingMessage.style.display = "none";
+       errorMessage.textContent = "Probléma történt az adatok betöltésében";
+       console.error("Probléma történt az adatok lekerésében:", error);
+     });
+ }
+ 
+ submitBtn.addEventListener("click", () => {
+   const city = cityInput.value.trim();
+   if (city) {
+     getWeather(city);
+   } else {
+     errorMessage.textContent = "Kérlek írj be egy várost";
+   }
+ });
+ 
+ cityInput.addEventListener("keypress", (e) => {
+   if (e.key === "Enter") {
+     submitBtn.click();
+   }
+ });
+ 
+ /*----------------------------------------------------------------------------------------------------*/
+ 
+ // script.js
+ // A pop-up ablak megjelenítése
+ function showPopup() {
+     document.getElementById("popup").style.display = "flex";
+ }
+ 
+ // A pop-up ablak bezárása
+ function closePopup() {
+     document.getElementById("popup").style.display = "none";
+ }
+ 
+ // Teendők oldal megnyitása (ideiglenes, pl. új oldalra mutathat)
+ function viewTasks() {
+     window.location.href = "/teendok.html";  // Cseréld ki a megfelelő linkre
+ }
+ 
+ // Példa, hogyan jelenítsük meg a pop-upot 
+ setTimeout(showPopup, 60000);  
