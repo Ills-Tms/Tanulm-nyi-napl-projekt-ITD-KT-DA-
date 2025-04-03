@@ -3,8 +3,8 @@ const ido = document.getElementById("ido");
 const eventTimeSpan = document.getElementById("eventTime");
 const inputForm = document.getElementById("inputForm");
 const eventInput = document.getElementById("eventInput");
-const eventTypeSelect = document.getElementById("eventType"); 
-let events = {};
+const eventTypeSelect = document.getElementById("eventType");
+let events = JSON.parse(localStorage.getItem("events")) || {}; // Get events from localStorage
 
 function ÓraFrissites() {
   const now = new Date();
@@ -17,13 +17,12 @@ function ÓraFrissites() {
 
 const eventStyles = {
   dolgozat: "dolgozat",
-  beadando:"beadando",
+  beadando: "beadando",
   feleles: "feleles",
   meeting: "meeting",
-  szakkor:"szakkor",
-  egyebDolgok:"egyebDolgok"
+  szakkor: "szakkor",
+  egyebDolgok: "egyebDolgok",
 };
-
 
 function frissit() {
   const now = new Date();
@@ -70,6 +69,9 @@ function saveEvent() {
   }
   events[day][time] = { text: event, type: eventType };
 
+  // Save events to localStorage
+  localStorage.setItem("events", JSON.stringify(events));
+
   updateCalendar();
 
   inputForm.style.display = "none";
@@ -101,96 +103,94 @@ function closePopup() {
 
 // Teendők oldal megnyitása (ideiglenes, pl. új oldalra mutathat)
 function viewTasks() {
-  window.location.href = "/Tanulm-nyi-napl-projekt-ITD-KT-DA-/teendok";  // Cseréld ki a megfelelő linkre
+  window.location.href = "/Tanulm-nyi-napl-projekt-ITD-KT-DA-/teendok"; // Cseréld ki a megfelelő linkre
 }
 
-function showLogin(){
-  document.getElementById("loginForm").style.display="flex";
+function showLogin() {
+  document.getElementById("loginForm").style.display = "flex";
 }
 
-function closeLogin(){
-  document.getElementById("loginForm").style.display="none";
+function closeLogin() {
+  document.getElementById("loginForm").style.display = "none";
 }
 
-function showRegister(){
-  document.getElementById("registerForm").style.display="flex";
+function showRegister() {
+  document.getElementById("registerForm").style.display = "flex";
 }
 
-function closeRegister(){
-  document.getElementById("registerForm").style.display="none";
+function closeRegister() {
+  document.getElementById("registerForm").style.display = "none";
 }
 
 const apiKey = "f02435607a5e4bf090773090dfb62ae1";
- const submitBtn = document.getElementById("submit-btn");
- const cityInput = document.getElementById("city-input");
- const weatherInfo = document.getElementById("weather-info");
- const loadingMessage = document.getElementById("loading-message");
- const errorMessage = document.getElementById("error-message");
- 
- function getWeather(city) {
-   loadingMessage.style.display = "block";
-   errorMessage.textContent = "";
-   weatherInfo.textContent = "";
- 
-   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=hu`;
- 
-   fetch(apiUrl)
-     .then((response) => response.json())
-     .then((data) => {
-       loadingMessage.style.display = "none";
- 
-       if (data.cod !== 200) {
-         errorMessage.textContent = "Város nem található. Próbálkozz újra";
-         return;
-       }
- 
-       const { name, weather, main } = data;
-       weatherInfo.innerHTML = `
+const submitBtn = document.getElementById("submit-btn");
+const cityInput = document.getElementById("city-input");
+const weatherInfo = document.getElementById("weather-info");
+const loadingMessage = document.getElementById("loading-message");
+const errorMessage = document.getElementById("error-message");
+
+function getWeather(city) {
+  loadingMessage.style.display = "block";
+  errorMessage.textContent = "";
+  weatherInfo.textContent = "";
+
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric&lang=hu`;
+
+  fetch(apiUrl)
+    .then((response) => response.json())
+    .then((data) => {
+      loadingMessage.style.display = "none";
+
+      if (data.cod !== 200) {
+        errorMessage.textContent = "Város nem található. Próbálkozz újra";
+        return;
+      }
+
+      const { name, weather, main } = data;
+      weatherInfo.innerHTML = `
                  <div class="weather-detail"><strong>Város:</strong> ${name}</div>
                  <div class="weather-detail"><strong>Időjárás:</strong> ${weather[0].description}</div>
                  <div class="weather-detail"><strong>Hőmérséglet:</strong> ${main.temp}°C</div>
                  <div class="weather-detail"><strong>Páratartalom:</strong> ${main.humidity}%</div>
              `;
-     })
-     .catch((error) => {
-       loadingMessage.style.display = "none";
-       errorMessage.textContent = "Probléma történt az adatok betöltésében";
-       console.error("Probléma történt az adatok lekerésében:", error);
-     });
- }
- 
- submitBtn.addEventListener("click", () => {
-   const city = cityInput.value.trim();
-   if (city) {
-     getWeather(city);
-   } else {
-     errorMessage.textContent = "Kérlek írj be egy várost";
-   }
- });
- 
- cityInput.addEventListener("keypress", (e) => {
-   if (e.key === "Enter") {
-     submitBtn.click();
-   }
- });
- 
- /*----------------------------------------------------------------------------------------------------*/
- 
- // script.js
- // A pop-up ablak megjelenítése
- function showPopup() {
-     document.getElementById("popup").style.display = "flex";
- }
- 
- // A pop-up ablak bezárása
- function closePopup() {
-     document.getElementById("popup").style.display = "none";
- }
- 
- 
- function viewTasks() {
-     window.location.href = "/teendok.html";  
- }
- 
+    })
+    .catch((error) => {
+      loadingMessage.style.display = "none";
+      errorMessage.textContent = "Probléma történt az adatok betöltésében";
+      console.error("Probléma történt az adatok lekerésében:", error);
+    });
+}
 
- setTimeout(showPopup, 300000);  
+submitBtn.addEventListener("click", () => {
+  const city = cityInput.value.trim();
+  if (city) {
+    getWeather(city);
+  } else {
+    errorMessage.textContent = "Kérlek írj be egy várost";
+  }
+});
+
+cityInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    submitBtn.click();
+  }
+});
+
+/*----------------------------------------------------------------------------------------------------*/
+
+// script.js
+// A pop-up ablak megjelenítése
+function showPopup() {
+  document.getElementById("popup").style.display = "flex";
+}
+
+// A pop-up ablak bezárása
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+
+function viewTasks() {
+  window.location.href = "/teendok.html";
+}
+
+setTimeout(showPopup, 300000);
