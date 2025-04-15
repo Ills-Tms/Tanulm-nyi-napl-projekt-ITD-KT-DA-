@@ -1,10 +1,11 @@
+// Változók létrehozása
 const datumsor = document.getElementById("datum");
 const ido = document.getElementById("ido");
 const eventTimeSpan = document.getElementById("eventTime");
 const inputForm = document.getElementById("inputForm");
 const eventInput = document.getElementById("eventInput");
 const eventTypeSelect = document.getElementById("eventType");
-let events = JSON.parse(localStorage.getItem("events")) || {}; // Get events from localStorage
+let events = JSON.parse(localStorage.getItem("events")) || {}; 
 
 function ÓraFrissites() {
   const now = new Date();
@@ -14,6 +15,7 @@ function ÓraFrissites() {
 
   ido.textContent = `${hours}:${minutes}:${seconds}`;
 }
+
 
 const eventStyles = {
   dolgozat: "dolgozat",
@@ -33,12 +35,15 @@ function frissit() {
   datumsor.innerText = `${ev}.${honap}.${nap}`;
 }
 
+// Frissítési gyakoriság beállítása és függvények meghívása 
 setInterval(ÓraFrissites, 1000);
 ÓraFrissites();
 
 setInterval(frissit, 1000);
 frissit();
 
+
+//Minden nap a naptárban kattintható
 document.querySelectorAll(".clickable").forEach((cell) => {
   cell.addEventListener("click", function () {
     const day = this.getAttribute("data-day");
@@ -69,7 +74,7 @@ function saveEvent() {
   }
   events[day][time] = { text: event, type: eventType };
 
-  // Save events to localStorage
+  // Eventek mentése lokálisan
   localStorage.setItem("events", JSON.stringify(events));
 
   updateCalendar();
@@ -92,6 +97,7 @@ function updateCalendar() {
   });
 }
 
+//Pop-up ablak mutatása
 function showPopup() {
   document.getElementById("popup").style.display = "flex";
 }
@@ -103,25 +109,33 @@ function closePopup() {
 
 // Teendők oldal megnyitása (ideiglenes, pl. új oldalra mutathat)
 function viewTasks() {
-  window.location.href = "/Tanulm-nyi-napl-projekt-ITD-KT-DA-/teendok"; // Cseréld ki a megfelelő linkre
+  window.location.href = "/Tanulm-nyi-napl-projekt-ITD-KT-DA-/teendok"; 
 }
 
+//Login ablak mutatása
 function showLogin() {
   document.getElementById("loginForm").style.display = "flex";
 }
 
+//Login ablak bezárása
 function closeLogin() {
   document.getElementById("loginForm").style.display = "none";
 }
 
+//Register ablak mutatása
 function showRegister() {
   document.getElementById("registerForm").style.display = "flex";
 }
 
+
+//Register ablak bezárása
 function closeRegister() {
   document.getElementById("registerForm").style.display = "none";
 }
+function cancelInput()
+{document.getElementById("inputForm").style.display="none"}
 
+//Az időjárás funkcio api kulcsa és a szukséges adatok 
 const apiKey = "f02435607a5e4bf090773090dfb62ae1";
 const submitBtn = document.getElementById("submit-btn");
 const cityInput = document.getElementById("city-input");
@@ -176,9 +190,7 @@ cityInput.addEventListener("keypress", (e) => {
   }
 });
 
-/*----------------------------------------------------------------------------------------------------*/
 
-// script.js
 // A pop-up ablak megjelenítése
 function showPopup() {
   document.getElementById("popup").style.display = "flex";

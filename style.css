@@ -285,6 +285,21 @@ button:hover {
   display: none;
 
 }
+#inputForm{
+  position: absolute;
+  width: 30%;
+  height: 30%;
+  background-color: #709775;
+  border: 1px solid black;
+  border-radius: 8px;
+  text-align: center;
+  margin-left: 35%;
+  margin-right: 35%;
+  padding-top: 50px;
+  top: 0%;
+}
+
+
 #userreg{
   width: 200px;
 }
